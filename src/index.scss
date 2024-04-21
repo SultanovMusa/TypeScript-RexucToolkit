@@ -19,6 +19,10 @@
 * {
 	box-sizing: border-box;
 	margin: 0;
+
+	footer{
+		margin-top: auto;
+	}
 }
 
 ul,
@@ -40,11 +44,13 @@ html {
 
 body {
 	font-family: "Inter", sans-serif;
-	background-image: url("https://img2.akspic.ru/crops/9/1/5/5/4/145519/145519-burya-voda-melkij_dozhd-osazhdenie-nebo-7680x4320.jpg");
+	background-image: url("https://img3.akspic.ru/crops/9/0/9/4/6/164909/164909-atmosfera-mir-astronomicheskij_obekt-nauka-elektrik-7680x4320.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 	color: white !important;
 }
+
 
 // .container {
 // 	width: 100%;

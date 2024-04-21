@@ -1,0 +1,34 @@
+.footer {
+	$hr-color: rgb(17, 0, 255);
+	$hr-height: 2px;
+	$hr-margin: 20px 0;
+	$hr-box-shadow: 5px 5px 25px 8px rgb(17, 51, 242);
+
+	hr {
+		border: none;
+		height: $hr-height;
+		background-color: $hr-color;
+		margin: $hr-margin;
+		box-shadow: $hr-box-shadow;
+	}
+	.content {
+		display: flex;
+		justify-content: space-around;
+		height: 3rem;
+		padding-block: 15px;
+
+		.icons {
+			display: flex;
+			gap: 1rem;
+
+			.span {
+				cursor: pointer;
+				font-size: 1.4rem;
+			}
+			.span:hover {
+				transition: 0.5s;
+				color: rgb(6, 30, 238);
+			}
+		}
+	}
+}

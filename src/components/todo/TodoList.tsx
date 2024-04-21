@@ -85,6 +85,8 @@ const TodoList: FC = () => {
 		<>
 			{/* //////////////////////////////////////////////////////////////////////////////////////////////////////! */}
 			<div className={scss.container}>
+				<hr />
+				<br />
 				<div className={scss.content}>
 					<input
 						className={scss.inputs}
@@ -114,91 +116,97 @@ const TodoList: FC = () => {
 						Delete All
 					</button>
 				</div>
+				<br />
+				<hr />
+				<div className={scss.flex}>
+					{todo.map((item) => (
+						////////////////////////////////////////////////////////////////////////////////////////////////////////!
+						<div key={item.id}>
+							{isEdit === item.id ? (
+								<div className={scss.Mufa}>
+									<div className={scss.Musa}>
+										<input
+											className={scss.inputs}
+											type="text"
+											value={name}
+											onChange={(e) => setName(e.target.value)}
+											placeholder="Textm"
+										/>
+										<input
+											className={scss.inputs}
+											type="date"
+											value={age}
+											onChange={(e) => setAge(e.target.value)}
+											placeholder="Agem"
+										/>
+										<input
+											className={scss.inputs}
+											type="url"
+											value={img}
+											onChange={(e) => setImg(e.target.value)}
+											placeholder="imgm"
+										/>
+									</div>
+									<span onClick={() => saveEdit(item.id)}>
+										<AiFillCheckSquare />
+									</span>
+									<span onClick={cancelEdit}>
+										<CiCircleRemove />
+									</span>
+								</div>
+							) : (
+								//////////////////////////////////////////////////////////////////////////////////////////////////////!
+								<div className={scss.car}>
+									<div className={scss.cars}>
+										<label className={scss.crr}>
+											<input
+												type="checkbox"
+												onChange={() => toggleCheckbox(item.id)}
+											/>
+											<div className={scss.checkmark}></div>
+										</label>
 
-				{todo.map((item) => (
-					////////////////////////////////////////////////////////////////////////////////////////////////////////!
-					<div key={item.id}>
-						{isEdit === item.id ? (
-							<div className={scss.Mufa}>
-								<div className={scss.Musa}>
-									<input
-										className={scss.inputs}
-										type="text"
-										value={name}
-										onChange={(e) => setName(e.target.value)}
-										placeholder="Textm"
-									/>
-									<input
-										className={scss.inputs}
-										type="date"
-										value={age}
-										onChange={(e) => setAge(e.target.value)}
-										placeholder="Agem"
-									/>
-									<input
-										className={scss.inputs}
-										type="url"
-										value={img}
-										onChange={(e) => setImg(e.target.value)}
-										placeholder="imgm"
-									/>
+										<h1
+											style={{
+												textDecoration: checkedItems[item.id]
+													? "line-through"
+													: "none",
+											}}>
+											{item.name}
+										</h1>
+										<h3
+											style={{
+												textDecoration: checkedItems[item.id]
+													? "line-through"
+													: "none",
+											}}>
+											{item.age}
+										</h3>
+										<img
+											style={{
+												filter: checkedItems[item.id]
+													? "grayscale(100%)"
+													: "none",
+											}}
+											src={item.img}
+											alt={item.name}
+										/>
+									</div>
+									<span
+										className={scss.icon}
+										onClick={() => deleteButton(item.id)}>
+										<HiArchiveBoxXMark />
+									</span>
+									<span
+										className={scss.icons}
+										onClick={() => isEditButton(item.id)}>
+										<BiSolidCommentEdit />
+									</span>
 								</div>
-								<span onClick={() => saveEdit(item.id)}>
-									<AiFillCheckSquare />
-								</span>
-								<span onClick={cancelEdit}>
-									<CiCircleRemove />
-								</span>
-							</div>
-						) : (
-							//////////////////////////////////////////////////////////////////////////////////////////////////////!
-							<div className={scss.car}>
-								<div className={scss.cars}>
-									<input
-										className={scss.cek}
-										type="checkbox"
-										onChange={() => toggleCheckbox(item.id)}
-									/>
-									<h1
-										style={{
-											textDecoration: checkedItems[item.id]
-												? "line-through"
-												: "none",
-										}}>
-										{item.name}
-									</h1>
-									<h3
-										style={{
-											textDecoration: checkedItems[item.id]
-												? "line-through"
-												: "none",
-										}}>
-										{item.age}
-									</h3>
-									<img
-										style={{
-											filter: checkedItems[item.id]
-												? "grayscale(100%)"
-												: "none",
-										}}
-										src={item.img}
-										alt={item.name}
-									/>
-								</div>
-								<span
-									className={scss.icon}
-									onClick={() => deleteButton(item.id)}>
-									<HiArchiveBoxXMark />
-								</span>
-								<span
-									className={scss.icons}
-									onClick={() => isEditButton(item.id)}>
-									<BiSolidCommentEdit />
-								</span>
-							</div>
-						)}
-					</div>
-				))}
+							)}
+						</div>
+					))}
+				</div>
 			</div>
 		</>
 	);

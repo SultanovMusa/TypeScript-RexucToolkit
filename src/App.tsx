@@ -1,12 +1,12 @@
 import { FC } from "react";
-// import Counter from "./components/Counter";
 import TodoList from "./components/todo/TodoList";
+import Footer from "./components/footer/Footer";
 
 const App: FC = () => {
 	return (
 		<>
-			{/* <Counter /> */}
 			<TodoList />
+			<Footer/>
 		</>
 	);
 };

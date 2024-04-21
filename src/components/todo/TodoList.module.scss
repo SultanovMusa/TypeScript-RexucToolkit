@@ -1,6 +1,16 @@
 .container {
-	margin-left: 5rem;
-	margin-top: 5rem;
+	$hr-color: rgb(17, 0, 255);
+	$hr-height: 2px;
+	$hr-margin: 20px 0;
+	$hr-box-shadow: 5px 5px 25px 8px rgb(17, 51, 242);
+
+	hr {
+		border: none;
+		height: $hr-height;
+		background-color: $hr-color;
+		margin: $hr-margin;
+		box-shadow: $hr-box-shadow;
+	}
 	.content {
 		display: flex;
 		justify-content: space-around;
@@ -14,11 +24,12 @@
 			background: transparent;
 			backdrop-filter: blur(5px);
 			border-radius: 15px;
-			border: 1px solid rgb(2, 2, 130);
+			border: 1px solid rgb(11, 51, 255);
 		}
 		.inputs:hover {
+			transition: 1s;
 			cursor: progress;
-			box-shadow: 5px 5px 15px 5px rgb(8, 8, 47);
+			box-shadow: 0px 2px 15px 5px rgb(6, 30, 238);
 		}
 		.btn {
 			margin-left: 3rem;
@@ -27,81 +38,165 @@
 			height: 3rem;
 			border: none;
 			border-radius: 10px;
-			border: 1px solid rgb(2, 2, 130);
+			border: 1px solid rgb(11, 51, 255);
 		}
 		.btn:hover {
 			cursor: grabbing;
-			box-shadow: 5px 5px 15px 5px rgb(2, 2, 130);
-			border: 1px solid rgb(2, 2, 130);
+			box-shadow: 0px 5px 15px 5px rgb(6, 30, 238);
 			transition: 1s;
 		}
 	}
-	.car {
-		margin-top: 5rem;
-		height: 35rem;
-		width: 28rem;
-		border: 1px solid rgb(2, 2, 130);
-		margin-left: 25rem;
-		padding: 5%;
-		border-radius: 30px;
 
-		.icon {
-			font-size: 2rem;
-			margin-left: 2rem;
-		}
-		.icons {
-			font-size: 2rem;
-			margin-left: 11rem;
-		}
-		.cars {
-			gap: 10px;
+	.flex {
+		display: flex;
+		flex-wrap: wrap;
+
+		.Mufa {
 			display: flex;
-			justify-content: space-between;
-			flex-direction: column;
+			margin-bottom: 2rem;
 
-			.cek {
-				height: 20px;
+			span {
+				margin-top: 3rem;
+				font-size: 2rem;
+				margin-left: 3rem;
+			}
+			span:hover{
+				transition: 0.5s;
+				color: rgb(6, 30, 238);
+			}
+
+			.Musa {
+				display: flex;
+				justify-content: space-between;
+				margin-left: 25px;
+				margin-top: 3rem;
+				gap: 80px;
+
+				.inputs {
+					width: 15rem;
+					height: 2.5rem;
+					padding: 10px;
+					border: none;
+					background: transparent;
+					backdrop-filter: blur(5px);
+					border-radius: 15px;
+					border: 1px solid rgb(2, 2, 130);
+				}
+				.inputs:hover {
+					cursor: progress;
+					box-shadow: 5px 5px 15px 5px rgb(8, 8, 47);
+				}
 			}
 		}
-		img {
-			border-radius: 15px;
-			width: 300px;
-			height: 280px;
-			margin-bottom: 3rem;
-		}
-	}
-	.Mufa {
-		display: flex;
 
-		span {
-			margin-top: 3rem;
-			font-size: 2rem;
-			margin-left: 3rem;
-		}
-	}
-	.Musa {
-		display: flex;
-		justify-content: space-between;
-		margin-left: 25px;
-		margin-top: 3rem;
-		gap: 80px;
-		.inputs {
-			width: 15rem;
-			height: 2.5rem;
-			padding: 10px;
-			border: none;
-			background: transparent;
-			backdrop-filter: blur(5px);
-			border-radius: 15px;
+		.car {
+			margin-top: 5rem;
+			height: 37rem;
+			width: 28rem;
 			border: 1px solid rgb(2, 2, 130);
+			margin-left: 5rem;
+			padding: 4rem;
+			border-radius: 30px;
+			margin-bottom: 2rem;
+
+			.icon {
+				font-size: 2rem;
+				margin-left: 2rem;
+			}
+			.icon:hover{
+				transition: 0.5s;
+				color: rgb(6, 30, 238);
+			}
+			.icons {
+				font-size: 2rem;
+				margin-left: 11rem;
+			}
+			.icons:hover{
+				transition: 0.5s;
+				color: rgb(6, 30, 238);
+			}
+			.cars {
+				gap: 10px;
+				display: flex;
+				justify-content: space-between;
+				flex-direction: column;
+
+				.crr input {
+					display: none;
+				}
+
+				.crr {
+					display: block;
+					position: relative;
+					cursor: pointer;
+					font-size: 30px;
+					user-select: none;
+					-webkit-tap-highlight-color: transparent;
+				}
+
+				.checkmark {
+					position: relative;
+					top: 0;
+					left: 0;
+					height: 1.3em;
+					width: 1.3em;
+					border-radius: 0.3em;
+					transition: all 0.25s;
+					--spread: 50px;
+				}
+
+				.crr input:checked ~ .checkmark {
+					background-color: rgb(6, 30, 238);
+					box-shadow: -10px -10px var(--spread) 0px rgb(17, 0, 248),
+						0 -10px var(--spread) 0px rgb(243, 11, 243),
+						10px -10px var(--spread) 0px rgb(253, 228, 0),
+						10px 0 var(--spread) 0px rgb(107, 255, 21),
+						10px 10px var(--spread) 0px rgb(76, 0, 255),
+						0 10px var(--spread) 0px rgb(255, 196, 0),
+						-10px 10px var(--spread) 0px rgb(90, 105, 240);
+				}
+
+				.checkmark:after {
+					content: "";
+					position: absolute;
+					transform: rotate(0deg);
+					border: 2px solid rgb(2, 2, 130);
+					left: 0;
+					top: 0;
+					width: 1.1em;
+					height: 1.1em;
+					border-radius: 0.25em;
+					transition: all 0.25s, border-width 0.1s;
+				}
+
+				.crr input:checked ~ .checkmark:after {
+					left: 0.45em;
+					top: 0.25em;
+					width: 0.25em;
+					height: 0.5em;
+					border-color: rgba(238, 238, 238, 0) white white #fff0;
+					border-width: 0 0.15em 0.15em 0;
+					border-radius: 0em;
+					transform: rotate(45deg);
+				}
+			}
+			img {
+				border-radius: 15px;
+				width: 300px;
+				height: 280px;
+				margin-bottom: 3rem;
+			}
+			img:hover {
+				transition: 1s;
+				border: 1px solid white;
+				box-shadow: 2px 5px 15px 10px rgb(17, 51, 242);
+			}
 		}
-		.inputs:hover {
-			cursor: progress;
-			box-shadow: 5px 5px 15px 5px rgb(8, 8, 47);
+
+		.car:hover {
+			cursor: grabbing;
+			transition: 1s;
+			box-shadow: 5px 5px 15px 15px rgb(17, 51, 242);
 		}
-	}
-	.car:hover {
-		cursor: grabbing;
-		box-shadow: 5px 5px 15px 5px rgb(2, 2, 130);
 	}
 }
